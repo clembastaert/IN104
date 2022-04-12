@@ -1,0 +1,3 @@
+/Users/clembastaert/Desktop/Code/IN104/build/CMakeFiles/sfml-app.dir
+/Users/clembastaert/Desktop/Code/IN104/build/CMakeFiles/edit_cache.dir
+/Users/clembastaert/Desktop/Code/IN104/build/CMakeFiles/rebuild_cache.dir

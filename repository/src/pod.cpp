@@ -4,12 +4,17 @@
 
 Decision::Decision(sf::Vector2f target, float power) 
 {
-    //TODO
+    target_=target;
+    power_ = power;
+
 };
 
 Pod::Pod(sf::Vector2f pos, float angle, sf::Vector2f vel) 
 {
-    //TODO
+    angle_=angle;
+    pos_=pos;
+    vel_=vel;
+    
 };
 
 Decision Pod::getDecision(Game gameSnapshot) const

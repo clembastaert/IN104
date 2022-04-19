@@ -493,4 +493,12 @@ CMakeFiles/sfml-app.dir/src/main.cpp.o: \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/Sprite.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/Text.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/VertexBuffer.hpp \
-  /Users/clembastaert/Desktop/Code/IN104/repository/inc/utils.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/iostream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/istream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/cmath \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/math.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h \
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/game.h \
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/checkpoint.h \
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/utils.h \
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/pod.h

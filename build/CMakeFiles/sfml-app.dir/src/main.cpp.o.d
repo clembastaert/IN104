@@ -493,5 +493,4 @@ CMakeFiles/sfml-app.dir/src/main.cpp.o: \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/Sprite.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/Text.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/VertexBuffer.hpp \
-  /Users/clembastaert/Desktop/Code/IN104/repository/inc/utils.h \
-  /Users/clembastaert/Desktop/Code/IN104/repository/inc/Checkpoint.h
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/utils.h

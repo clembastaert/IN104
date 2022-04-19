@@ -1,36 +1,41 @@
-
 #include "utils.h"
 #include <cmath>
 
-void scaleToMinSize(sf::Sprite &sprite, int maxWidth, int maxHeight)
+void setOriginToCenter(sf::Sprite &object)
 {
-    auto rect = sprite.getGlobalBounds();
-    float rapportHeight = (float)maxHeight/(float)rect.height;
-    float rapportWidth = (float)maxWidth/(float)rect.width;
-    if (rapportHeight>rapportWidth){
-        sprite.scale(rapportHeight,rapportHeight);
-    }
-    else {
-        sprite.scale(rapportWidth,rapportWidth);
-    }
+    auto rect = object.getGlobalBounds();
+    object.setOrigin(rect.width/2., rect.height/2.);
 }
 
-void scaleToMaxSize(sf::Sprite &sprite, int maxWidth, int maxHeight)
+void setOriginToCenter(sf::Shape &object)
 {
-    auto rect = sprite.getGlobalBounds();
-    float rapportHeight = (float)maxHeight/(float)rect.height;
-    float rapportWidth = (float)maxWidth/(float)rect.width;
-    if (rapportHeight<rapportWidth){
-        sprite.scale(rapportHeight,rapportHeight);
-    }
-    else sprite.scale(rapportWidth,rapportWidth);
+    auto rect = object.getGlobalBounds();
+    object.setOrigin(rect.width/2., rect.height/2.);
 }
 
-void scalebyRadius(sf::Sprite &sprite, int radius)
+void scaleToMinSize(sf::Sprite &sp, double size_x, double size_y)
 {
-    auto rect = sprite.getGlobalBounds();
-    float demidiagonalecarre = 0.25*(rect.height*rect.height + rect.width*rect.width);
-    float demidiagonale = sqrt(demidiagonalecarre);
-    float rapport = (float)radius/demidiagonale;
-    sprite.scale(rapport,rapport);
+    double scalingFactor = std::max(size_x/sp.getTextureRect().width, size_y/sp.getTextureRect().height);
+    sp.scale(scalingFactor, scalingFactor);
+}
+
+void scaleToMaxSize(sf::Sprite &sp, double size_x, double size_y)
+{
+    double scalingFactor = std::min(size_x/sp.getTextureRect().width, size_y/sp.getTextureRect().height);
+    sp.scale(scalingFactor, scalingFactor);
+}
+
+void scaleByRadius(sf::Sprite &sp, int radius)
+{
+    double scalingFactor = 2*radius/std::sqrt(sp.getTextureRect().width*sp.getTextureRect().width + sp.getTextureRect().height*sp.getTextureRect().height);
+    sp.scale(scalingFactor, scalingFactor);
+}
+
+void setTextCenterPosition(sf::Text &txt, sf::Vector2f center)
+{
+    sf::Vector2f offset;
+    offset.x = txt.getPosition().x - txt.getGlobalBounds().left - txt.getGlobalBounds().width/2.;
+    offset.y = txt.getPosition().y - txt.getGlobalBounds().top - txt.getGlobalBounds().height/2.;
+
+    txt.setPosition(center + offset);
 }

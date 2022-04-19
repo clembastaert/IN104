@@ -3,7 +3,6 @@
 #include <string>
 #include "SFML/System/Time.hpp"
 #include "utils.h"
-#include "Checkpoint.h"
 using namespace std;
 
 #define DELAY 0.0166666
@@ -136,7 +135,6 @@ int main()
         window.draw(SWMilleniumFalcon);
         window.draw(checkeredFlag);
         window.draw(fpsDisplay);
-
 
         window.display();
     }

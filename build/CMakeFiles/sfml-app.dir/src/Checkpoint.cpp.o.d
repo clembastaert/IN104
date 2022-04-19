@@ -1,8 +1,5 @@
 CMakeFiles/sfml-app.dir/src/Checkpoint.cpp.o: \
   /Users/clembastaert/Desktop/Code/IN104/repository/src/Checkpoint.cpp \
-  /Users/clembastaert/Desktop/Code/IN104/repository/inc/Checkpoint.h \
-  /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics.hpp \
-  /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Window.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/System.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Config.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/TargetConditionals.h \
@@ -441,6 +438,8 @@ CMakeFiles/sfml-app.dir/src/Checkpoint.cpp.o: \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/System/Vector2.inl \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/System/Vector3.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/System/Vector3.inl \
+  /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics.hpp \
+  /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Window.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Window/Clipboard.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Window/Export.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Window/Context.hpp \
@@ -494,4 +493,10 @@ CMakeFiles/sfml-app.dir/src/Checkpoint.cpp.o: \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/Sprite.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/Text.hpp \
   /Users/clembastaert/Library/Frameworks/SFML.framework/Headers/Graphics/VertexBuffer.hpp \
-  /Users/clembastaert/Desktop/Code/IN104/repository/inc/utils.h
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/checkpoint.h \
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/utils.h \
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/game.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/cmath \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/math.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h \
+  /Users/clembastaert/Desktop/Code/IN104/repository/inc/pod.h

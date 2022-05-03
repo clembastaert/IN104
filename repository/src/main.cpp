@@ -21,10 +21,10 @@ int main()
 
   
 
-    CheckPoint checkpoint(sf::Vector2f(1000, 1000), 1);
-    FinalCheckPoint finalcheckpoint(sf::Vector2f(10000, 1000));
 
     std::vector<sf::Vector2f> checkpointsPositions;
+    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(3000, 3000));
+    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(8000, 5000));
     checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(1000, 1000));
     checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(10000, 1000));
     Game g;

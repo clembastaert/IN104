@@ -19,6 +19,7 @@ Game::Game() : finalCP_(sf::Vector2f((rand() % 14800) + 600.f, (rand() % 7800) +
     }
 
     int size = checkpointsPositions.size();
+    otherCPs_.reserve(size-1);
 
 
     for(int i=1; i<size; i++){
@@ -36,7 +37,7 @@ Game::Game() : finalCP_(sf::Vector2f((rand() % 14800) + 600.f, (rand() % 7800) +
 Game::Game(std::vector<sf::Vector2f> checkpointsPositions) : finalCP_(checkpointsPositions[0])
 {
     int size = checkpointsPositions.size();
-
+    otherCPs_.reserve(size-1);
 
     for(int i=1; i<size; i++){
         otherCPs_.emplace_back(checkpointsPositions[i], i);
@@ -70,6 +71,7 @@ void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(backgroundSprite_, states);
     target.draw(finalCP_, states);
+
     for (const auto &cp : otherCPs_)
     {
         target.draw(cp, states);

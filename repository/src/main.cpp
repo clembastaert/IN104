@@ -10,6 +10,8 @@
 
 int main()
 {
+
+    srand(time(0));
     
     sf::ContextSettings settings;
     settings.antialiasingLevel = 32;
@@ -17,13 +19,18 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1600, 900), "SFML works!", sf::Style::Default, settings);
     window.setView(sf::View(sf::Rect(0.f,0.f,16000.f,9000.f)));
 
-    sf::Texture background_texture;
-    if( !background_texture.loadFromFile("../repository/Images/background.png"))return 1;
-    sf::Sprite background;
-    background.setTexture(background_texture);
+  
+
+    CheckPoint checkpoint(sf::Vector2f(1000, 1000), 1);
+    FinalCheckPoint finalcheckpoint(sf::Vector2f(10000, 1000));
+
+    std::vector<sf::Vector2f> checkpointsPositions;
+    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(1000, 1000));
+    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(10000, 1000));
+    Game g;
 
 
-        scaleToMinSize(background, 16000,9000);
+
 
 
     while (window.isOpen())
@@ -40,7 +47,10 @@ int main()
 
         
         window.clear();
-        window.draw(background);
+        // window.draw(background);
+        // window.draw(checkpoint);
+        // window.draw(finalcheckpoint);
+        window.draw(g);
         window.display();
     }
 

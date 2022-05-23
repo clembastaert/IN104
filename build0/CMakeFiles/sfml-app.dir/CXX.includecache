@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/ensta/IN104/repository/inc/Checkpoint.h
+SFML/Graphics.hpp
+-
+SFML/Graphics/CircleShape.hpp
+-
+SFML/System/Vector2.hpp
+-
+utils.h
+/home/ensta/IN104/repository/inc/utils.h
+
 /home/ensta/IN104/repository/inc/checkpoint.h
 SFML/Graphics.hpp
 -
@@ -37,9 +47,13 @@ SFML/System.hpp
 -
 cmath
 -
+Checkpoint.h
+/home/ensta/IN104/repository/inc/Checkpoint.h
 
 /home/ensta/IN104/repository/inc/utils.h
 SFML/Graphics.hpp
+-
+SFML/System/Vector2.hpp
 -
 
 /home/ensta/IN104/repository/src/game.cpp
@@ -53,6 +67,40 @@ SFML/Graphics/CircleShape.hpp
 -
 SFML/System/Time.hpp
 -
+SFML/System/Vector2.hpp
+-
+cmath
+-
 iostream
+-
+
+/home/ensta/IN104/repository/src/main.cpp
+SFML/Graphics.hpp
+-
+SFML/System.hpp
+-
+SFML/Window.hpp
+-
+iostream
+-
+cmath
+-
+game.h
+/home/ensta/IN104/repository/src/game.h
+vector
+-
+string
+-
+checkpoint.h
+/home/ensta/IN104/repository/src/checkpoint.h
+utils.h
+/home/ensta/IN104/repository/src/utils.h
+
+/home/ensta/IN104/repository/src/pod.cpp
+pod.h
+/home/ensta/IN104/repository/src/pod.h
+game.h
+/home/ensta/IN104/repository/src/game.h
+SFML/System/Vector2.hpp
 -
 

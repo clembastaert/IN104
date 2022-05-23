@@ -39,3 +39,26 @@ void setTextCenterPosition(sf::Text &txt, sf::Vector2f center)
 
     txt.setPosition(center + offset);
 }
+
+double calculateAngle(sf::Vector2f pointA, sf::Vector2f pointB){
+
+    double length = pointB.x - pointA.x;
+    double height = pointA.y - pointB.y;
+
+    double angle;
+
+    if(length >= 0){
+
+        if(height >= 0) angle = atan(height/length);
+        else angle = 2*M_PI - atan(-height/length);
+
+    }
+    else{
+        
+        if(height >= 0) angle = M_PI - atan(-height/length);
+        else angle = M_PI + atan(height/length);
+    }
+
+
+    return angle;
+}

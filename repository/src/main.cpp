@@ -5,7 +5,7 @@
 #include <cmath>
 #include "game.h"
 #include <vector>
-#include <string>
+#include <cstring>
 #include "checkpoint.h"
 #include "utils.h"
 #include "menu.h"
@@ -34,8 +34,16 @@ int main()
 
     //Game g;
 
-    g.addPod("../repository/Images/BSGCylon.png");
-    //g.addPod("../repository/Images/BSGViper.png", 1);
+
+    char textures[6][43];
+    strcpy(textures[0], "../repository/Images/SWMilleniumFalcon.png");
+    strcpy(textures[1], "../repository/Images/BSGCylon.png");
+    strcpy(textures[2], "../repository/Images/BSGViper.png");
+    strcpy(textures[3], "../repository/Images/SWAnakinsPod.png");
+    strcpy(textures[4], "../repository/Images/NMSFighterY.png");
+    strcpy(textures[5], "../repository/Images/NMSFighterG.png");
+
+    g.addPod(textures[0], 0);
 
 
     sf::Clock clock;
@@ -53,8 +61,8 @@ int main()
 
     Menu menu(16000.f, 9000.f, 1);
     int gameOn = 0;
-    int decision_making;
     int end = 0;
+    int pods_number = 1;
 
     while (window.isOpen())
     {   
@@ -88,6 +96,9 @@ int main()
                                 {
                                     case 0:
                                         gameOn = 1;
+                                        for(int i=1; i<pods_number; i++){
+                                            g.addPod(textures[i], (i%2) + 1);
+                                        }
                                         break;
                                     case 1:
                                         menu.cat_ = 2;
@@ -95,7 +106,7 @@ int main()
                                         break;
                                     case 2:
                                         window.close();
-                                        break;
+                                        return 0;
                                 }
                                 break;
 
@@ -107,6 +118,8 @@ int main()
                                         menu.update();
                                         break;
                                     case 1:
+                                        menu.cat_ = 4;
+                                        menu.update();
                                         break;
                                     case 2:
                                         menu.cat_ = 1;
@@ -129,6 +142,30 @@ int main()
                                         menu.update();
                                         break;
                                     case 2:
+                                        g.pods_[0].decision_making_ = 2;
+                                        menu.cat_ = 2;
+                                        menu.update();
+                                        break;
+                                }
+                                break;
+
+                                case 4:
+                                switch (menu.GetPressedItem())
+                                {
+                                    case 0:
+                                        pods_number = 1;
+                                        menu.cat_ = 2;
+                                        menu.update();
+                                        break;;
+                                    case 1:
+                                        pods_number = 2;
+                                        menu.cat_ = 2;
+                                        menu.update();
+                                        break;
+                                    case 2:
+                                        pods_number = 3;
+                                        menu.cat_ = 2;
+                                        menu.update();
                                         break;
                                 }
                                 break;
@@ -154,6 +191,7 @@ int main()
             window.draw(menu);
         }   
 
+
         else{
 
             sf::Event event;
@@ -162,6 +200,7 @@ int main()
                 if (event.type == sf::Event::Closed)
                 {
                     window.close();
+                    return 0;
                 }
             }
 
@@ -170,8 +209,7 @@ int main()
 
             if(elapsed.asMilliseconds() - g.physicsTime.asMilliseconds() > PHYSICS_TIME_STEP.asMilliseconds()){
                 if(end){
-                    printf("%f\n", elapsed.asSeconds());
-                    return 0;
+                    break;
                 }
                 end = g.updatePhysics();
             }
@@ -196,5 +234,31 @@ int main()
         window.display();
     }
 
+
+    sf::Event event;
+    char str[13] = "Pod x wins !";
+    str[4] = end + '0';
+    text.setFillColor(sf::Color::White);
+    text.setString(str);
+    text.setPosition(6000.f, 4000.f);
+
+    while (1)
+    {
+        
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+                return 0;
+            }
+        }
+
+        window.clear();
+        window.draw(g);
+        window.draw(text);
+        window.display();
+    }
+    
     return 0;
 }

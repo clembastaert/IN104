@@ -24,6 +24,7 @@ class Pod
     Decision getDecision(Game gameSnapshot) const; 
     int isNextCPCrossed(std::vector<CheckPoint> otherCPs_, FinalCheckPoint finalCP_);
     int decision_making_;
+    float power_;
 
     private :
     sf::Vector2f pos_, vel_; //position and velocity vectors

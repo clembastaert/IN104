@@ -124,31 +124,42 @@ int Game::updatePhysics()
 {
     sf::Vector2f correct_target;
 
-    for (Pod &pod : pods_)
+    for (unsigned int i=0; i<pods_.size(); i++)
     {
-        Decision decision = pod.getDecision(*this);
+        Decision decision = pods_[i].getDecision(*this);
 
-        pod.angle_ = decision.angle_;
+        pods_[i].power_ = decision.power_;
 
-        correct_target.x = (decision.length_ * cos(pod.angle_) + pod.pos_.x);
-        correct_target.y = (decision.length_ * sin(pod.angle_) + pod.pos_.y);
+        pods_[i].angle_ = decision.angle_;
 
-        
-        if(decision.length_ != 0) pod.vel_ = FRICTION_COEFF * ( pod.vel_ + decision.power_ * (decision.traj_) / decision.length_);
-        else pod.vel_ = FRICTION_COEFF * pod.vel_;
-        pod.pos_ = pod.pos_ + pod.vel_;
-
+        correct_target.x = (decision.length_ * cos(pods_[i].angle_) + pods_[i].pos_.x);
+        correct_target.y = (decision.length_ * sin(pods_[i].angle_) + pods_[i].pos_.y);
 
         
-        if(pod.isNextCPCrossed(otherCPs_, finalCP_)) return 1;
+        if(decision.length_ != 0){
+            pods_[i].vel_ = FRICTION_COEFF * ( pods_[i].vel_ + decision.power_ * (decision.traj_) / decision.length_);
+        }
+        else{
+            pods_[i].vel_ = FRICTION_COEFF * pods_[i].vel_;
+        }
 
-        return 0;
+        pods_[i].pos_ = pods_[i].pos_ + pods_[i].vel_;
+
+
+        
+        if(pods_[i].isNextCPCrossed(otherCPs_, finalCP_)){
+            return i+1;
+        }
+
+        
         
         
     }
 
 
     physicsTime += PHYSICS_TIME_STEP;
+
+    return 0;
 }
 
 void Game::updateGraphics(sf::Time frameTime)

@@ -27,14 +27,20 @@ Menu::Menu(float width, float height, int cat)
 
     if(cat_ == 2){
         strcpy(option1, "Decision making");
-        strcpy(option2, "");
-        strcpy(option3, "Exit");
+        strcpy(option2, "Number of pods");
+        strcpy(option3, "Back");
     }
 
     if(cat_ == 3){
         strcpy(option1, "Manual");
-        strcpy(option2, "Next CP AI");
-        strcpy(option3, "");
+        strcpy(option2, "Next CP AI - V1");
+        strcpy(option3, "Next CP AI - V2");
+    }
+
+	if(cat_ == 4){
+        strcpy(option1, "1 Pod");
+        strcpy(option2, "2 Pods");
+        strcpy(option3, "3 Pods");
     }
 
 	menu[0].setFont(font);
@@ -64,19 +70,25 @@ void Menu::update()
     if(cat_ == 1){
         strcpy(option1, "Play");
         strcpy(option2, "Options");
-        strcpy(option3, "Back");
+        strcpy(option3, "Exit");
     }
 
     if(cat_ == 2){
         strcpy(option1, "Decision making");
-        strcpy(option2, "");
+        strcpy(option2, "Number of pods");
         strcpy(option3, "Back");
     }
 
     if(cat_ == 3){
         strcpy(option1, "Manual");
-        strcpy(option2, "Next CP AI");
-        strcpy(option3, "");
+        strcpy(option2, "Next CP AI - V1");
+        strcpy(option3, "Next CP AI - V2");
+    }
+
+	if(cat_ == 4){
+        strcpy(option1, "1 Pod");
+        strcpy(option2, "2 Pods");
+        strcpy(option3, "3 Pods");
     }
 
 	menu[0].setFont(font);

@@ -150,6 +150,33 @@ src/Checkpoint.cpp.s:
 	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/Checkpoint.cpp.s
 .PHONY : src/Checkpoint.cpp.s
 
+src/example.o: src/example.cpp.o
+
+.PHONY : src/example.o
+
+# target to build an object file
+src/example.cpp.o:
+	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/example.cpp.o
+.PHONY : src/example.cpp.o
+
+src/example.i: src/example.cpp.i
+
+.PHONY : src/example.i
+
+# target to preprocess a source file
+src/example.cpp.i:
+	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/example.cpp.i
+.PHONY : src/example.cpp.i
+
+src/example.s: src/example.cpp.s
+
+.PHONY : src/example.s
+
+# target to generate assembly for a file
+src/example.cpp.s:
+	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/example.cpp.s
+.PHONY : src/example.cpp.s
+
 src/game.o: src/game.cpp.o
 
 .PHONY : src/game.o
@@ -203,6 +230,33 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/menu.o: src/menu.cpp.o
+
+.PHONY : src/menu.o
+
+# target to build an object file
+src/menu.cpp.o:
+	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/menu.cpp.o
+.PHONY : src/menu.cpp.o
+
+src/menu.i: src/menu.cpp.i
+
+.PHONY : src/menu.i
+
+# target to preprocess a source file
+src/menu.cpp.i:
+	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/menu.cpp.i
+.PHONY : src/menu.cpp.i
+
+src/menu.s: src/menu.cpp.s
+
+.PHONY : src/menu.s
+
+# target to generate assembly for a file
+src/menu.cpp.s:
+	$(MAKE) -f CMakeFiles/sfml-app.dir/build.make CMakeFiles/sfml-app.dir/src/menu.cpp.s
+.PHONY : src/menu.cpp.s
 
 src/pod.o: src/pod.cpp.o
 
@@ -270,12 +324,18 @@ help:
 	@echo "... src/Checkpoint.o"
 	@echo "... src/Checkpoint.i"
 	@echo "... src/Checkpoint.s"
+	@echo "... src/example.o"
+	@echo "... src/example.i"
+	@echo "... src/example.s"
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/menu.o"
+	@echo "... src/menu.i"
+	@echo "... src/menu.s"
 	@echo "... src/pod.o"
 	@echo "... src/pod.i"
 	@echo "... src/pod.s"

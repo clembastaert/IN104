@@ -40,6 +40,11 @@ void setTextCenterPosition(sf::Text &txt, sf::Vector2f center)
     txt.setPosition(center + offset);
 }
 
+double norm(sf::Vector2f v){
+
+    return std::sqrt(v.x*v.x + v.y*v.y);
+}
+
 double calculateAngle(sf::Vector2f pointA, sf::Vector2f pointB){
 
     double length = pointB.x - pointA.x;
@@ -47,18 +52,27 @@ double calculateAngle(sf::Vector2f pointA, sf::Vector2f pointB){
 
     double angle;
 
-    if(length >= 0){
 
-        if(height >= 0) angle = atan(height/length);
-        else angle = 2*M_PI - atan(-height/length);
+    if(length >= 0) angle = atan(height/length);
+    else angle = M_PI + atan(height/length);
 
-    }
-    else{
-        
-        if(height >= 0) angle = M_PI - atan(-height/length);
-        else angle = M_PI + atan(height/length);
-    }
+    return 2*M_PI - angle;
+}
 
+double legalAngle(double angle, double pod_angle){
 
-    return angle;
+        double diff;
+
+        diff = angle - pod_angle;
+
+        if(diff > M_PI) diff = diff - 2*M_PI;
+        else if(diff < -M_PI)  diff = diff + 2*M_PI;
+
+        if(fabs(diff) > M_PI/10){
+            if(diff >= 0) angle = pod_angle + (M_PI/10);
+            else angle = pod_angle - (M_PI/10);
+
+        }
+
+        return angle;
 }

@@ -9,23 +9,27 @@ class Game;
 
 struct Decision
 {
-    Decision(sf::Vector2f target, float power);
+    Decision(sf::Vector2f traj, float power, float angle, float length);
 
-    sf::Vector2f target_;
+    sf::Vector2f traj_;
     float power_;
+    float angle_;
+    float length_;
 };
 
 class Pod
 {
     public :
-    Pod(sf::Vector2f pos, float angle, sf::Vector2f vel = {0, 0});
+    Pod(sf::Vector2f pos, float angle, sf::Vector2f vel = {0, 0}, int decision_making = 0);
     Decision getDecision(Game gameSnapshot) const; 
-    void isNextCPCrossed(std::vector<CheckPoint> otherCPs_, FinalCheckPoint finalCP_, sf::Time physicsTime);
+    int isNextCPCrossed(std::vector<CheckPoint> otherCPs_, FinalCheckPoint finalCP_);
+    int decision_making_;
 
     private :
     sf::Vector2f pos_, vel_; //position and velocity vectors
     float angle_; //angle in radians
     int nextCP_, lapCount_;
+    
     
     friend class Game; //allows game to modify pod's private attributes
 };

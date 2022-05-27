@@ -5,8 +5,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ensta/IN104/repository/src/Checkpoint.cpp" "/home/ensta/IN104/build0/CMakeFiles/sfml-app.dir/src/Checkpoint.cpp.o"
+  "/home/ensta/IN104/repository/src/example.cpp" "/home/ensta/IN104/build0/CMakeFiles/sfml-app.dir/src/example.cpp.o"
   "/home/ensta/IN104/repository/src/game.cpp" "/home/ensta/IN104/build0/CMakeFiles/sfml-app.dir/src/game.cpp.o"
   "/home/ensta/IN104/repository/src/main.cpp" "/home/ensta/IN104/build0/CMakeFiles/sfml-app.dir/src/main.cpp.o"
+  "/home/ensta/IN104/repository/src/menu.cpp" "/home/ensta/IN104/build0/CMakeFiles/sfml-app.dir/src/menu.cpp.o"
   "/home/ensta/IN104/repository/src/pod.cpp" "/home/ensta/IN104/build0/CMakeFiles/sfml-app.dir/src/pod.cpp.o"
   "/home/ensta/IN104/repository/src/utils.cpp" "/home/ensta/IN104/build0/CMakeFiles/sfml-app.dir/src/utils.cpp.o"
   )

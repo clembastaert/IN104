@@ -13,7 +13,9 @@ void scaleByRadius(sf::Sprite &sp, int radius);
 
 void setTextCenterPosition(sf::Text &txt, sf::Vector2f center);
 
-double calculateAngle(sf::Vector2f pointA, sf::Vector2f pointB);
+double norm(sf::Vector2f v);
 
+double calculateAngle(sf::Vector2f pointA, sf::Vector2f pointB);
+double legalAngle(double angle, double pod_angle);
 
 #endif

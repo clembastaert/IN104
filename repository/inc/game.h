@@ -22,8 +22,8 @@ class Game : public sf::Drawable
     Game(); //create a Game with 2 to 8 checkpoints at random positions (they shouldn't overlap)
     Game(std::vector<sf::Vector2f> checkpointsPositions); //create a Game with predefined checkpoints positions
 
-    void addPod(char* loc); //can add various arguments here to chose the appearance or the decision making type of the pod
-    void updatePhysics();
+    void addPod(char* loc, int decision_making = 1); //can add various arguments here to chose the appearance or the decision making type of the pod
+    int updatePhysics();
     void updateGraphics(sf::Time frameTime); //change pods sprites positions and rotations depending on the frame time
 
     // private :

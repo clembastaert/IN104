@@ -8,6 +8,8 @@
 #include <string>
 #include "checkpoint.h"
 #include "utils.h"
+#include "menu.h"
+
 
 int main()
 {
@@ -24,26 +26,17 @@ int main()
 
 
     std::vector<sf::Vector2f> checkpointsPositions;
-    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(3000, 3000));
+    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(7000, 8000));
     checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(8000, 5000));
-    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(1000, 1000));
-    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(10000, 1000));
+    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(2500, 1200));
+    checkpointsPositions.insert(checkpointsPositions.begin(), sf::Vector2f(10000, 2500));
     Game g(checkpointsPositions);
 
     //Game g;
 
     g.addPod("../repository/Images/BSGCylon.png");
+    //g.addPod("../repository/Images/BSGViper.png", 1);
 
-    // sf::Texture BSGCylon_texture;
-    // BSGCylon_texture.loadFromFile("../repository/Images/BSGCylon.png");
-
-    //sf::Sprite Sprite;
-    //Sprite.setTexture(g.podsTextures_[0]);
-    //g.podsSprites_.emplace_back(Sprite);
-
-    // scaleToMaxSize(Sprite, 800, 800);
-    // setOriginToCenter(Sprite);
-    // Sprite.setPosition({2800, 2800});
 
     sf::Clock clock;
     sf::Time elapsed;
@@ -55,46 +48,151 @@ int main()
     sf::Font font;
     font.loadFromFile("../repository/fonts/arial.ttf");
     text.setFont(font);
-    text.setString("Hello world");
     text.setCharacterSize(800);
     text.setFillColor(sf::Color::Green);
+
+    Menu menu(16000.f, 9000.f, 1);
+    int gameOn = 0;
+    int decision_making;
+    int end = 0;
 
     while (window.isOpen())
     {   
 
-        sf::Event event;
-        while (window.pollEvent(event))
+        if(!gameOn)
         {
-            if (event.type == sf::Event::Closed)
+            sf::Event event;
+            while (window.pollEvent(event))
             {
-                window.close();
+
+
+                switch(event.type)
+                {
+
+                case sf::Event::KeyReleased:
+                    switch (event.key.code)
+                    {
+                        case sf::Keyboard::Up:
+                            menu.MoveUp();
+                            break;
+
+                        case sf::Keyboard::Down:
+                            menu.MoveDown();
+                            break;
+
+                        case sf::Keyboard::Return:
+                            switch (menu.cat_)
+                            {
+                                case 1:
+                                switch (menu.GetPressedItem())
+                                {
+                                    case 0:
+                                        gameOn = 1;
+                                        break;
+                                    case 1:
+                                        menu.cat_ = 2;
+                                        menu.update();
+                                        break;
+                                    case 2:
+                                        window.close();
+                                        break;
+                                }
+                                break;
+
+                                case 2:
+                                switch (menu.GetPressedItem())
+                                {
+                                    case 0:
+                                        menu.cat_ = 3;
+                                        menu.update();
+                                        break;
+                                    case 1:
+                                        break;
+                                    case 2:
+                                        menu.cat_ = 1;
+                                        menu.update();
+                                        break;
+                                }
+                                break;
+
+                                case 3:
+                                switch (menu.GetPressedItem())
+                                {
+                                    case 0:
+                                        g.pods_[0].decision_making_ = 0;
+                                        menu.cat_ = 2;
+                                        menu.update();
+                                        break;;
+                                    case 1:
+                                        g.pods_[0].decision_making_ = 1;
+                                        menu.cat_ = 2;
+                                        menu.update();
+                                        break;
+                                    case 2:
+                                        break;
+                                }
+                                break;
+                            }
+                            break;
+
+                        default :
+                            continue;
+                    }
+                    break;
+
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+
+                default : continue;
+
+                }
             }
+
+            
+            window.clear();
+            window.draw(menu);
+        }   
+
+        else{
+
+            sf::Event event;
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                {
+                    window.close();
+                }
+            }
+
+
+            elapsed = clock.getElapsedTime();
+
+            if(elapsed.asMilliseconds() - g.physicsTime.asMilliseconds() > PHYSICS_TIME_STEP.asMilliseconds()){
+                if(end){
+                    printf("%f\n", elapsed.asSeconds());
+                    return 0;
+                }
+                end = g.updatePhysics();
+            }
+
+            if(elapsed.asMilliseconds() - lastTime > 1000){
+                lastTime = elapsed.asMilliseconds();
+                fps = std::to_string(cpt);
+                cpt = 0;
+                text.setString(fps);
+            }
+
+            cpt++;
+            
+            g.updateGraphics(elapsed);
+            
+            window.clear();
+            window.draw(g);
+            window.draw(text);
         }
 
-        elapsed = clock.getElapsedTime();
 
-        if(elapsed.asMilliseconds() - g.physicsTime.asMilliseconds() > PHYSICS_TIME_STEP.asMilliseconds()){
-            g.updatePhysics();
-        }
-
-        if(elapsed.asMilliseconds() - lastTime > 1000){
-            lastTime = elapsed.asMilliseconds();
-            fps = std::to_string(cpt);
-            cpt = 0;
-            text.setString(fps);
-        }
-
-        cpt++;
-        
-        g.updateGraphics(elapsed);
-        
-        window.clear();
-        // window.draw(background);
-        // window.draw(checkpoint);
-        // window.draw(finalcheckpoint);
-        window.draw(g);
-        window.draw(text);
-        //window.draw(Sprite);
         window.display();
     }
 
